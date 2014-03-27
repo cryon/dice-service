@@ -1,0 +1,62 @@
+body {
+    background-image: url('../img/bg.jpg');
+    background-repeat: repeat;
+}
+
+#fork {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+
+div {
+    width: 650px;
+    margin: 20px auto;
+
+    background-color: rgba(206, 188, 165, 0.3);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+h1 {
+    padding-top: 20px;
+    font-size: 50pt;
+    color: white;
+
+    text-shadow:
+    1px 1px 0 #CCC,
+    2px 2px 0 #CCC,
+    3px 3px 0 #444,
+    4px 4px 0 #444,
+    5px 5px 0 #444,
+    6px 6px 0 #444;
+
+    -webkit-transition: all 0.12s ease-out;
+    -moz-transition: all 0.12s ease-out;
+    -o-transition: all 0.12s ease-out;
+
+    margin-bottom: 0px;
+}
+
+.flavor {
+    font-style: italic;
+    font-size: 16pt;
+    color: #888;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.result {
+    font-wight: bold;
+    color: white;
+}
+
+.error {
+    color: #DF3A01;
+}
+
+.gods {
+    font-weight: bold;
+    color: red;
+}
