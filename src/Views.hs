@@ -9,7 +9,8 @@ module Views
        ) where
 
 import Web.Scotty
-import qualified Data.Text.Lazy as T
+import qualified Data.Text as T
+import qualified Data.Text.Lazy as TL
 import qualified Data.Aeson as A
 import Data.Aeson ((.=))
 import Network.HTTP.Types (status406)
@@ -26,7 +27,7 @@ type ViewT = Either String (DiceRoll, RollResult) -> ActionM ()
 -- Text ------------------------------------------------------------------------
 
 asText :: ViewT
-asText r = text . T.pack $ case r of
+asText r = text . TL.pack $ case r of
    Right (_, res) -> show res
    Left  err      -> err
 

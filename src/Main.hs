@@ -10,7 +10,8 @@ import Control.Monad.Trans
 import Network.Wai.Middleware.RequestLogger
 import Network.Wai.Middleware.Static
 import qualified Control.Monad.State as S
-import qualified Data.Text.Lazy as T
+import qualified Data.Text as T
+import qualified Data.Text.Lazy as TL
 import qualified Data.ByteString.Char8 as B
 
 import DiceRoll
@@ -65,7 +66,7 @@ serve port logHandle = scotty port $ do
     res  <- rollHelper dice gen
 
     accept <- reqHeader "accept"
-    (case bestAcceptMatch =<< accept of
+    (case bestAcceptMatch . TL.toStrict  =<< accept of
       Just mediaType -> viewLookup mediaType
       Nothing        -> err406) res
 

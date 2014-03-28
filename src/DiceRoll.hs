@@ -18,12 +18,12 @@ import Control.Applicative ((<$>), (<*>), (*>))
 import Data.Aeson (ToJSON(..), object, (.=))
 
 import Text.Parsec
-import Text.Parsec.Text.Lazy
-import qualified Data.Text.Lazy as T
+import Text.Parsec.Text
+import qualified Data.Text as T
 
 import Data.Maybe (fromJust)
 import Text.Numeral.Grammar.Reified (defaultInflection)
-import qualified Text.Numeral.Language.EN as N
+import qualified Text.Numeral.Language.ENG as N
 
 import qualified Control.Monad.State as S
 import Control.Monad (foldM, liftM)
@@ -127,7 +127,7 @@ flavor (DiceRoll number (Dice sides) modifier)
 
 resultFlavor :: DiceRoll -> T.Text
 resultFlavor (DiceRoll num _ _)
-  | num > 1   = "You analyze the mess before you."
+  | num > 1   = "You analyze the the mess before you."
   | otherwise = "You investigate the die."
 
 modFlavor :: Int -> T.Text

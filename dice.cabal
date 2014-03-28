@@ -22,7 +22,7 @@ executable dice
                        mtl                   == 2.1.*,
                        blaze-html            == 0.6.*,
                        numerals              == 0.4.*,
-                       numerals-base         == 0.4.*,
+                       --numerals-base         == 0.4.*,
                        http-media            == 0.1.*,
                        bytestring            == 0.10.*,
                        http-types            == 0.8.*,
