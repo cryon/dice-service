@@ -65,7 +65,7 @@ serve port logHandle = scotty port $ do
     gen  <- lift newStdGen
     res  <- rollHelper dice gen
 
-    accept <- reqHeader "accept"
+    accept <- header "accept"
     (case bestAcceptMatch . TL.toStrict  =<< accept of
       Just mediaType -> viewLookup mediaType
       Nothing        -> err406) res
