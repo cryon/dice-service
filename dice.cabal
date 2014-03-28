@@ -14,10 +14,10 @@ cabal-version:       >=1.8
 executable dice
   main-is:             Main.hs
   hs-source-dirs:      src
-  build-depends:       base                  == 4.*,
+  build-depends:       base                  == 4.6.*,
                        parsec                == 3.1.*,
                        random                == 1.*,
-                       scotty                == 0.6.*,
+                       scotty                == 0.7.*,
                        text                  == 0.11.*,
                        mtl                   == 2.1.*,
                        blaze-html            == 0.6.*,
@@ -27,7 +27,7 @@ executable dice
                        bytestring            == 0.10.*,
                        http-types            == 0.8.*,
                        aeson                 == 0.6.*,
-                       wai-extra             == 2.0.*,
-                       wai-middleware-static == 0.4.*,
-                       optparse-applicative  == 0.7.*,
+                       wai-extra             == 2.1.*,
+                       wai-middleware-static == 0.5.*,
+                       optparse-applicative  == 0.8.*,
                        data-default          == 0.5.*
