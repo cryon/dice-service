@@ -127,7 +127,7 @@ flavor (DiceRoll number (Dice sides) modifier)
 
 resultFlavor :: DiceRoll -> T.Text
 resultFlavor (DiceRoll num _ _)
-  | num > 1   = "You analyze the the mess before you."
+  | num > 1   = "You analyze the mess before you."
   | otherwise = "You investigate the die."
 
 modFlavor :: Int -> T.Text
