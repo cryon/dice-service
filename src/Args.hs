@@ -31,7 +31,7 @@ cmdParser = Arguments
 opts:: ParserInfo Arguments
 opts = info (helper <*> cmdParser)
        (fullDesc
-        <> header "Starts a service on that listens for incoming HTTP \
+        <> header "Starts a service that listens for incoming HTTP \
                    \GET requests, parses the argument and returns the \
                    \result in either plain text, json or html"
         <> progDesc "Dice as a service (DaaS)")
