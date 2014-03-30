@@ -1,6 +1,6 @@
 module Args (Arguments
             , argPort
-            , argLogLocation
+            --, argLogLocation
             , opts
              , execParser
             ) where
@@ -11,7 +11,7 @@ defaultPort :: Int
 defaultPort = 80
 
 data Arguments = Arguments { argPort        :: Int
-                           , argLogLocation :: Maybe String
+                           --, argLogLocation :: Maybe String
                            }
 
 cmdParser :: Parser Arguments
@@ -22,11 +22,11 @@ cmdParser = Arguments
                         <> help "Port that service listens to (defaults to 80)"
                         <> value defaultPort)
 
-            <*> optional (option (long "log-location"
-                               <> short 'l'
-                               <> metavar "PATH"
-                               <> help "Path to logfile (if none is given, \
-                                        \defaults to STDOUT)"))
+            -- <*> optional (option (long "log-location"
+            --                    <> short 'l'
+            --                    <> metavar "PATH"
+            --                    <> help "Path to logfile (if none is given, \
+            --                             \defaults to STDOUT)"))
 
 opts:: ParserInfo Arguments
 opts = info (helper <*> cmdParser)
