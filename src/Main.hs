@@ -7,6 +7,7 @@ import Data.Default (def)
 import Data.Maybe (fromJust)
 import Network.HTTP.Media
 import Control.Monad.Trans
+import Control.Monad (liftM)
 import Network.Wai.Middleware.RequestLogger
 import Network.Wai.Middleware.Static
 import qualified Control.Monad.State as S
@@ -60,15 +61,18 @@ serve port logHandle = scotty port $ do
   setupLogger logHandle
   setupStatic
 
-  get "/:diceRoll" $ do
-    dice <- param "diceRoll"
-    gen  <- lift newStdGen
-    res  <- rollHelper dice gen
+  get "/:r" $ do
+    roll <- liftM (fallback "d20") (param "r")
+    res  <- rollHelper roll =<< liftIO newStdGen
 
     accept <- header "accept"
     (case bestAcceptMatch . TL.toStrict  =<< accept of
       Just mediaType -> viewLookup mediaType
       Nothing        -> err406) res
+
+fallback :: T.Text -> T.Text -> T.Text
+fallback f "" = f
+fallback _ t  = t
 
 rollHelper :: T.Text -> StdGen -> ActionM (Either String (DiceRoll, RollResult))
 rollHelper d g = do
