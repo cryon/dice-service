@@ -1,6 +1,7 @@
 body {
     background-image: url('../img/bg.jpg');
     background-repeat: repeat;
+    font-size: 16pt;
 }
 
 #fork {
@@ -20,8 +21,6 @@ div {
 }
 
 h1 {
-    padding-top: 20px;
-    font-size: 50pt;
     color: white;
 
     text-shadow:
@@ -41,7 +40,6 @@ h1 {
 
 .flavor {
     font-style: italic;
-    font-size: 16pt;
     color: #888;
     padding-left: 10px;
     padding-right: 10px;
@@ -59,4 +57,37 @@ h1 {
 .gods {
     font-weight: bold;
     color: red;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited, a:active {
+    color: #0093ff;
+}
+
+a:hover {
+    color: white;
+}
+
+.help {
+    text-align: left;
+}
+
+.help h2 {
+    color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 16pt;
+    font-style: italic;
+}
+
+.help ul {
+    list-style-type: none;
+    font-size: 14pt;
+}
+
+.help li {
+    margin-top: 7px;
 }

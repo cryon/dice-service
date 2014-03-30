@@ -85,6 +85,7 @@ diceHtmlOk roll res = H.docTypeHtml $ do
                                                        , T.pack (show res)
                                                        , ")"]
         H.toHtml $ T.pack "!"
+    diceHtmlHelp
 
 diceHtmlErr :: String -> H.Html
 diceHtmlErr msg = H.docTypeHtml $ do
@@ -101,6 +102,16 @@ diceHtmlErr msg = H.docTypeHtml $ do
                           \head speaking in an unwordly language:"
       H.p ! class_ "flavor gods" $ do
         H.toHtml msg
+    diceHtmlHelp
+
+diceHtmlHelp :: H.Html
+diceHtmlHelp = H.div ! class_ "help" $ do
+  H.h2 "A few suggestions:"
+  H.ul $ do
+    H.li $ H.a ! href "/2d6"   $ "Two six-sided dice."
+    H.li $ H.a ! href "/d10+4" $ "A ten-sided die with a modifier of +4."
+    H.li $ H.a ! href "/d"     $ "A single six-sided die."
+    H.li $ H.a ! href "/d1"    $ "The exciting single sided die!"
 
 -- Errors ----------------------------------------------------------------------
 
