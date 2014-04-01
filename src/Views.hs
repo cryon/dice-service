@@ -70,6 +70,7 @@ fork = H.a ! href "http://github.com/cryon/dice-service" $
 diceHtmlOk :: DiceRoll -> Int -> H.Html
 diceHtmlOk roll res = H.docTypeHtml $ do
   H.head $ do
+    H.meta ! charset "utf-8"
     H.title "Dice as a Service"
     css
   H.body $ do
@@ -90,6 +91,7 @@ diceHtmlOk roll res = H.docTypeHtml $ do
 diceHtmlErr :: String -> H.Html
 diceHtmlErr msg = H.docTypeHtml $ do
   H.head $ do
+    H.meta ! charset "utf-8"
     H.title "Dice as a Service: Error"
     css
   H.body $ do
